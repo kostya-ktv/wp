@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import * as Webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ForkTsChecker from "fork-ts-checker-webpack-plugin";
 import { BuildOptions } from "./types";
 
 export default function buildPlugins({
@@ -15,6 +16,7 @@ export default function buildPlugins({
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
+
     new Webpack.DefinePlugin({
       __PLATFORM__: JSON.stringify(platform),
     }),
@@ -22,7 +24,7 @@ export default function buildPlugins({
 
   if (isDev) {
     //slowly plugin
-    plugins.push(new Webpack.ProgressPlugin());
+    plugins.push(new Webpack.ProgressPlugin(), new ForkTsChecker());
   }
 
   if (isProd) {

@@ -58,8 +58,19 @@ export default function buildLoaders({
   };
   const tsLoader = {
     test: /\.tsx?$/,
-    use: "ts-loader",
     exclude: /node_modules/,
+    use: [
+      {
+        loader: "ts-loader",
+        options: {
+          /* avoid type checking on build
+            suggestion: use webpack forkPlugin ->
+            fork-ts-checker-webpack-plugin
+          */
+          transpileOnly: true,
+        },
+      },
+    ],
   };
 
   return [scssLoader, tsLoader, assetsLoader, SVGRLoader];
