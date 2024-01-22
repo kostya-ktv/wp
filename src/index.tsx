@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { App } from "./components/App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { AboutPageLazy, ShopPageLazy } from "./components/pages";
+import { AboutPageLazy, ShopPageLazy } from "@/components/pages";
 import React from "react";
 
 const root = document.getElementById("root");

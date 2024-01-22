@@ -3,6 +3,10 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "ESNext",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "target": "es5",
     // removesw unnecessary default React imports
     "jsx": "react-jsx",
