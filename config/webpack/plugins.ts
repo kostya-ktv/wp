@@ -4,6 +4,7 @@ import * as Webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ForkTsChecker from "fork-ts-checker-webpack-plugin";
 import { BuildOptions } from "./types";
+import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 export default function buildPlugins({
   isDev,
@@ -23,8 +24,11 @@ export default function buildPlugins({
   ];
 
   if (isDev) {
-    //slowly plugin
-    plugins.push(new Webpack.ProgressPlugin(), new ForkTsChecker());
+    plugins.push(
+      new Webpack.ProgressPlugin(),
+      new ForkTsChecker(),
+      new ReactRefreshPlugin()
+    );
   }
 
   if (isProd) {

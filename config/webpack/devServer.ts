@@ -14,6 +14,8 @@ export default function buildDevServer({
           for static data need to proxy to index.html
         */
         historyApiFallback: true,
+        // Enable default Hot Module Replacement
+        hot: true,
       }
     : undefined;
 }

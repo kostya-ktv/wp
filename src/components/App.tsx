@@ -8,7 +8,11 @@ import Vercel from "@/assets/vercel.svg";
 export const App = () => {
   const [counter, setCounter] = useState(0);
   if (__PLATFORM__ === "mobile") {
-    return <h2>Mobile screen</h2>;
+    return (
+      <h2 onClick={() => setCounter((prev) => prev + 1)}>
+        Mobile screen2asd3!${counter}
+      </h2>
+    );
   }
   return (
     <div>

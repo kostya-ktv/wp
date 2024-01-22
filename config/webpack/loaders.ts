@@ -1,6 +1,7 @@
 import { ModuleOptions } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BuildOptions } from "./types";
+import ReactRefreshTypescript from "react-refresh-typescript";
 
 export default function buildLoaders({
   isDev,
@@ -56,6 +57,7 @@ export default function buildLoaders({
       },
     ],
   };
+  /* Typescript loader */
   const tsLoader = {
     test: /\.tsx?$/,
     exclude: /node_modules/,
@@ -68,6 +70,9 @@ export default function buildLoaders({
             fork-ts-checker-webpack-plugin
           */
           transpileOnly: true,
+          getCustomTransformers: () => ({
+            before: [isDev && ReactRefreshTypescript()],
+          }),
         },
       },
     ],
