@@ -5,6 +5,8 @@ export interface BuildPath {
   src: string;
   html: string;
   output: string;
+  favicon: string;
+  locales: string;
 }
 
 export interface BuildOptions {

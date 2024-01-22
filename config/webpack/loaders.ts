@@ -71,7 +71,7 @@ export default function buildLoaders({
           */
           transpileOnly: true,
           getCustomTransformers: () => ({
-            before: [isDev && ReactRefreshTypescript()],
+            before: isDev ? [ReactRefreshTypescript()] : [],
           }),
         },
       },

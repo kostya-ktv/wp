@@ -16,6 +16,8 @@ export default function (env: IEnvVariablesKeys) {
       html: path.resolve(__dirname, "public", "index.html"),
       output: path.resolve(__dirname, "build"),
       src: path.resolve(__dirname, "src"),
+      favicon: path.resolve(__dirname, "public", "favicon.ico"),
+      locales: path.resolve(__dirname, "public", "locales"),
     },
   };
   return buildWebpack(options);

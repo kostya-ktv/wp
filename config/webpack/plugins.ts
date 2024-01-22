@@ -5,6 +5,8 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ForkTsChecker from "fork-ts-checker-webpack-plugin";
 import { BuildOptions } from "./types";
 import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
+import path from "path";
 
 export default function buildPlugins({
   isDev,
@@ -16,6 +18,7 @@ export default function buildPlugins({
   const plugins: Webpack.Configuration["plugins"] = [
     new HtmlWebpackPlugin({
       template: paths.html,
+      favicon: paths.favicon,
     }),
 
     new Webpack.DefinePlugin({
@@ -36,6 +39,14 @@ export default function buildPlugins({
       new MiniCssExtractPlugin({
         filename: "css/[name].[contenthash:8].css",
         chunkFilename: "css/[name].[contenthash:8].css",
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: paths.locales,
+            to: path.resolve(paths.output, "locales"),
+          },
+        ],
       })
     );
   }
