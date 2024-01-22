@@ -5,13 +5,6 @@ import buildPlugins from "./plugins";
 import buildResolvers from "./resolvers";
 import { BuildOptions } from "./types";
 
-export enum EnvVariables {
-  PORT,
-  MODE,
-  ANALYZER,
-}
-export type IEnvVariables = Record<keyof typeof EnvVariables, any>;
-
 export function buildWebpack(options: BuildOptions) {
   const config: Webpack.Configuration = {
     entry: options.paths.entry,

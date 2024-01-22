@@ -7,8 +7,12 @@ import Vercel from "@/assets/vercel.svg";
 
 export const App = () => {
   const [counter, setCounter] = useState(0);
+  if (__PLATFORM__ === "mobile") {
+    return <h2>Mobile screen</h2>;
+  }
   return (
     <div>
+      <h1>{__PLATFORM__}</h1>
       <Link to="/about">About</Link>
       <br />
       <Link to="/shop">Shop</Link>

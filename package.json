@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack serve",
     "build:dev": "webpack --env MODE=development",
-    "build:prod": "webpack --env MODE=production"
+    "build:prod": "webpack --env MODE=production",
+    "build:mobile": "webpack --env MODE=production PLATFORM=mobile",
+    "build:desktop": "webpack --env MODE=production PLATFORM=desktop"
   },
   "author": "",
   "license": "ISC",

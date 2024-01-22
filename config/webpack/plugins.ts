@@ -9,10 +9,14 @@ export default function buildPlugins({
   isProd,
   paths,
   withAnalyzer,
+  platform,
 }: BuildOptions): Webpack.Configuration["plugins"] {
   const plugins: Webpack.Configuration["plugins"] = [
     new HtmlWebpackPlugin({
       template: paths.html,
+    }),
+    new Webpack.DefinePlugin({
+      __PLATFORM__: JSON.stringify(platform),
     }),
   ];
 
