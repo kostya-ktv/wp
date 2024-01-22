@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    // removesw unnecessary default React imports
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "node",
+    //import common as ES
+    "allowSyntheticDefaultImports": true,
+    // import * as T from '.'=> import T from ''
+    "esModuleInterop": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
