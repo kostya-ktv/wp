@@ -9,6 +9,11 @@ export default function buildDevServer({
     ? {
         port: port ?? 3000,
         open: true,
+        /* react router dom required
+          but works only with DevServer
+          for static data need to proxy to index.html
+        */
+        historyApiFallback: true,
       }
     : undefined;
 }
