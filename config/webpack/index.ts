@@ -8,6 +8,7 @@ import { BuildOptions } from "./types";
 export enum EnvVariables {
   PORT,
   MODE,
+  ANALYZER,
 }
 export type IEnvVariables = Record<keyof typeof EnvVariables, any>;
 

@@ -8,6 +8,7 @@ export default function (env: IEnvVariables) {
     port: env.PORT,
     isDev: env.MODE === "development",
     isProd: env.MODE === "production",
+    withAnalyzer: env.ANALYZER === "on",
     paths: {
       entry: path.resolve(__dirname, "src", "index.tsx"),
       html: path.resolve(__dirname, "public", "index.html"),

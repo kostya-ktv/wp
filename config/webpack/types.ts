@@ -11,4 +11,5 @@ export interface BuildOptions {
   mode: BuildMode;
   isProd: boolean;
   isDev: boolean;
+  withAnalyzer?: boolean;
 }

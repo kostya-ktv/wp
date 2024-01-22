@@ -8,6 +8,7 @@ export default function buildPlugins({
   isDev,
   isProd,
   paths,
+  withAnalyzer,
 }: BuildOptions): Webpack.Configuration["plugins"] {
   const plugins: Webpack.Configuration["plugins"] = [
     new HtmlWebpackPlugin({
@@ -25,9 +26,11 @@ export default function buildPlugins({
       new MiniCssExtractPlugin({
         filename: "css/[name].[contenthash:8].css",
         chunkFilename: "css/[name].[contenthash:8].css",
-      }),
-      new BundleAnalyzerPlugin()
+      })
     );
+  }
+  if (withAnalyzer) {
+    plugins.push(new BundleAnalyzerPlugin());
   }
   return plugins;
 }
