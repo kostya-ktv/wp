@@ -22,6 +22,11 @@ export function buildWebpack(options: BuildOptions) {
     resolve: buildResolvers(options),
     devtool: options.isDev && "inline-source-map",
     devServer: buildDevServer(options),
+    performance: {
+      hints: false,
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000,
+    },
   };
   return config;
 }
