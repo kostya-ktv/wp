@@ -2,10 +2,11 @@ import { ModuleOptions } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BuildOptions } from "./types";
 import ReactRefreshTypescript from "react-refresh-typescript";
-import buildBabelLoader from "config/babel";
+import { buildBabelLoader } from "../babel/";
 
 export default function buildLoaders({
   isDev,
+  isProd,
 }: BuildOptions): ModuleOptions["rules"] {
   const cssLoaderWithModules = {
     loader: "css-loader",
@@ -59,26 +60,26 @@ export default function buildLoaders({
     ],
   };
   /* Typescript loader */
-  const tsLoader = {
-    test: /\.tsx?$/,
-    exclude: /node_modules/,
-    use: [
-      {
-        loader: "ts-loader",
-        options: {
-          /* avoid type checking on build
-            suggestion: use webpack forkPlugin ->
-            fork-ts-checker-webpack-plugin
-          */
-          transpileOnly: true,
-          getCustomTransformers: () => ({
-            before: isDev ? [ReactRefreshTypescript()] : [],
-          }),
-        },
-      },
-    ],
-  };
-  const babelLoader = buildBabelLoader();
+  // const tsLoader = {
+  //   test: /\.tsx?$/,
+  //   exclude: /node_modules/,
+  //   use: [
+  //     {
+  //       loader: "ts-loader",
+  //       options: {
+  //         /* avoid type checking on build
+  //           suggestion: use webpack forkPlugin ->
+  //           fork-ts-checker-webpack-plugin
+  //         */
+  //         transpileOnly: true,
+  //         getCustomTransformers: () => ({
+  //           before: isDev ? [ReactRefreshTypescript()] : [],
+  //         }),
+  //       },
+  //     },
+  //   ],
+  // };
+  const babelLoader = buildBabelLoader(isProd);
   return [
     scssLoader,
     assetsLoader,

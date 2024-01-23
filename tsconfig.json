@@ -8,7 +8,7 @@
       "@/*": ["./src/*"]
     },
     "target": "es5",
-    // removesw unnecessary default React imports
+    // removes unnecessary default React imports
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",

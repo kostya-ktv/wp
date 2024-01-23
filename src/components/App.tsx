@@ -11,6 +11,7 @@ export const App = () => {
     return (
       <h2 onClick={() => setCounter((prev) => prev + 1)}>
         Mobile screen2asd3!${counter}
+        <h2 data-testid="h2Mobile">MOBILE TEST TAG</h2>
       </h2>
     );
   }
